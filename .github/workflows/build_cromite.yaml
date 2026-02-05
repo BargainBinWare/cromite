@@ -27,9 +27,9 @@ on:
         required: true
         default: 'arm64'
       type:
-        description: 'runner label (e.g. blacksmith-16vcpu-ubuntu-2404)'
+        description: 'runner label'
         required: true
-        default: 'blacksmith-16vcpu-ubuntu-2404'
+        default: 'depot-ubuntu-24.04-16'
       debug:
         description: 'debug? [true/false]'
         required: true
