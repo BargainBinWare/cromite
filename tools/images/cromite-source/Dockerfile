@@ -17,16 +17,11 @@ RUN sudo chown lg /etc/apt/apt.conf.d/proxy.conf
 RUN sudo echo "Acquire::http::Proxy \"$HTTP_PROXY\";" >/etc/apt/apt.conf.d/proxy.conf
 RUN sudo apt-get update
 
-COPY apply-cromite-patches.sh .
+COPY tools/images/cromite-source/apply-cromite-patches.sh .
+COPY . cromite/
 
-RUN sudo chmod +x ./apply-cromite-patches.sh && \
-    mkdir cromite && \
-    cd cromite && \
-    git init && \
-    git remote add origin https://github.com/uazo/cromite && \
-    git fetch origin $CROMITE_SHA && \
-    git reset --hard FETCH_HEAD && \
-    cd ..
+RUN sudo chown -R lg:lg cromite && \
+    sudo chmod +x ./apply-cromite-patches.sh
 
 RUN ./apply-cromite-patches.sh
 
