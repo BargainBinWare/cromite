@@ -1,3 +1,10 @@
+From: TwoLeaves <ohneherren@gmail.com>
+Date: Sat, 7 Feb 2026 12:00:00 +0000
+Subject: Add Developer Tools on Android
+
+Add a Developer Tools option to the toolbar menu on Android.
+
+---
 diff --git a/chrome/android/java/res/values/ids.xml b/chrome/android/java/res/values/ids.xml
 index e1e315747333bd..11be0ccd70f427 100644
 --- a/chrome/android/java/res/values/ids.xml
