@@ -14,6 +14,11 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled'
+        required: false
+        default: false
       sha:
         description: 'uazo/cromite SHA (defaults to current commit)'
         required: false
@@ -45,6 +50,13 @@ jobs:
     runs-on: ${{ github.event.inputs.type }}
     timeout-minutes: 1440
     steps:
+      # Enable tmate debugging of manually-triggered workflows if the input option was provided
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+        with:
+          detached: true
+
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
