@@ -1095,7 +1095,6 @@ index e616864d7f5265..171a32d619f05d 100644
    int GetTabCount() const override;
    int GetActiveIndex() const override;
    tabs::TabInterface* GetActiveTab() override;
-diff --git a/chrome/browser/ui/android/tab_model/tab_model_observer.cc b/chrome/browser/ui/android/tab_model/tab_model_observer.cc
 diff --git a/chrome/browser/ui/browser_navigator.cc b/chrome/browser/ui/browser_navigator.cc
 index 762564bcd2e62b..68fb2fa12c9718 100644
 --- a/chrome/browser/ui/browser_navigator.cc
